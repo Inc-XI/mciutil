@@ -1,0 +1,180 @@
+- name: SobelowUmbrella
+  # You may pin to the exact commit or the version.
+  # uses: karangejo/sobelow-umbrella-action@2fb5defa101e08186a64c063b58e174860a46d3d
+  uses: karangejo/sobelow-umbrella-action@v1.12
+  with:
+    # Output a results.sarif file for GitHub Security integration
+    report: # default is true
+    # Flags (https://github.com/nccgroup/sobelow#options)
+    flags: # optional
+    
+    - name: slack-build-notifier
+  # You may pin to the exact commit or the version.
+  # uses: hennejg/slack-build-notifier@83e0fdadbfd263eeb64a41273bc8e410644b6aab
+  uses: hennejg/slack-build-notifier@v1.1
+  with:
+    # Specify success or failure or cancelled or custom.
+    status: # optional, default is ${{ job.status }}
+    # json payload
+refs https://github.com/slackapi/node-slack-sdk/blob/v5.0.0/packages/webhook/src/IncomingWebhook.ts#L91-L106)
+
+    payload: # optional
+    # Specify channel or here or empty string.
+    mention: # optional, default is 
+    # Specify channel or here or empty string.
+    only_mention_fail: # optional, default is 
+    # User name for slack notification.
+    author_name: # optional, default is __COMMITTER__
+    # You can overwrite text.
+    text: # optional, default is 
+    # override the legacy integration's default name.
+    username: # optional, default is 
+    # an emoji code string to use in place of the default icon.
+    icon_emoji: # optional, default is 
+    # an icon image URL string to use in place of the default icon.
+    icon_url: # optional, default is 
+    # override the legacy integration's default channel. This should be an ID, such as C8UJ12P4P.
+    channel: # optional, default is 
+    # a comma-separated list of fields to hide from the template
+    exclude_fields: # optional, default is author, action, workflow
+    - name: cmake-quality
+  # You may pin to the exact commit or the version.
+  # uses: rainlabs-eu/ghaction-cmake-quality@7ef6a23dc54f373aed08a24cfc5d7ff51c3392ad
+  uses: rainlabs-eu/ghaction-cmake-quality@v4.0.1
+  with:
+    # Print extra information when running
+    verbose: # default is true
+    # CMake build directory
+    build_directory: # default is ./out
+    # CMake source directory
+    source_directory: # default is .
+    # Extra dependencies as apt packages to install
+    dependencies: # optional
+    # Extra variables to set in environemnt when running configure step, for example CC=gcc, CXX=g++
+    cmake_configure_environment: # optional, default is 
+    # One of clang sanitizers compile with, i.e. address, memory, undefined, dataflow, safe-stack
+    cmake_configure_sanitize: # optional
+    # CMake configure command extra args (appended to default ones)
+    cmake_configure_extra_args: # optional
+    # Call CMake for building
+    cmake_build_enable: # default is true
+    # CMake build options
+    cmake_build_options: # default is 
+    # Enable running ctest in build directory after build
+    ctest_enable: # default is false
+    # CTest extra flags to pass
+    ctest_flags: # optional
+    # CTest collect and upload coverage
+    ctest_coverage: # default is false
+    # Call CMake for installing
+    cmake_install_enable: # default is false
+    # Where to install, mandatory if cmake_install_enable=true
+    cmake_install_directory: # optional
+    # Other cmake --install ... <options>
+    cmake_install_options: # optional
+    - name: Husarnet
+  # You may pin to the exact commit or the version.
+  # uses: husarnet/husarnet-action@5a31a3afec1f61d882a64364e3b59f22f10fb57b
+  uses: husarnet/husarnet-action@v2
+  with:
+    # A Join Code for the Husarnet network you want to connect to
+    join-code: 
+    # A hostname under which this workflow will be available in your Husarnet network
+    hostname: # optional, default is default-hostname
+    # Thanks to cache, IPv6 address will be the same in the following job runs. Another cache means generating another peer.
+    cache-key: # optional, default is default-key
+    - name: Run vimlint with reviewdog (alt)
+  # You may pin to the exact commit or the version.
+  # uses: bb010g/reviewdog-action-vimlint@4dac400995ac54ad864393dbdf187f7fbac53d03
+  uses: bb010g/reviewdog-action-vimlint@v1.0.0
+  with:
+    # A token to authenticate on behalf of this GitHub App installed on your repository.
+    github_token: # optional, default is ${{ github.token }}
+    # Report level for reviewdog [info,warning,error]
+    level: # optional, default is error
+    # Reporter for reviewdog [github-pr-check,github-pr-review].
+    reporter: # optional, default is github-pr-check
+    # Path to lint. (The empty string unsets this input.)
+    path: # optional, default is autoload
+    # Additional paths or globs to lint (Busybox ash syntax).
+    paths: # optional
+    # Only report lint error messages [true,false].
+    only_error: # optional, default is false
+    # Lint verbosely [true,false].
+    verbose: # optional, default is true
+    # Additional vimlint flags (Busybox ash syntax).
+    flags: # optional
+    - name: matrix-message
+  # You may pin to the exact commit or the version.
+  # uses: s3krit/Matrix-Message@70ad3fb812ee0e45ff8999d6af11cafad11a6ecf
+  uses: s3krit/Matrix-Message@v0.0.3
+  with:
+    # Matrix server hostname
+    server: # optional, default is matrix.org
+    # Matrix room ID, specified in channels advanced settings
+    room_id: # default is 
+    # Access token required to send to matrix server
+    access_token: # default is 
+    # Message to send in plaintext format
+    message: # default is 
+    - name: Setup build matrix
+  # You may pin to the exact commit or the version.
+  # uses: jgiannuzzi/setup-build-matrix@1228c081ba616d5b12efe78fd51e667536a7f114
+  uses: jgiannuzzi/setup-build-matrix@v1.1.0
+  with:
+    # Build matrix configuration
+    config: - name: Matrix Git generator
+  # You may pin to the exact commit or the version.
+  # uses: ReyahSolutions/matrix-git-generator@81c27a8f8fcace14d2669780cc0057bee33bf8db
+  uses: ReyahSolutions/matrix-git-generator@v1
+  with:
+    # Github access token
+    token: # optional, default is ${{ github.token }}
+    # Git base reference, can be a branch name or a commit hash. The change list will be compared to the base.
+Will default to the last commit of the current branch
+
+    base: # optional, default is ${{ github.ref }}
+    # A list of filter to apply
+    filters: 
+    - name: Stale Watchdog Create Issues
+  # You may pin to the exact commit or the version.
+  # uses: whitesunset/stale-watchdog-create-issues-action@e6625f7074096e1d413a7321d780c72eb778b0c9
+  uses: whitesunset/stale-watchdog-create-issues-action@1.0.0
+  with:
+    # List of staled files
+    files: # default is staled.json
+    # Issue message body
+    body: # default is Last edit happened $$$ days ago 😬
+    # Issue title prefix
+    prefix: # default is [STALE]
+    # Issue labels
+    labels: # default is ["docs", "stale"]
+    # Assignees list
+    assignees: # optional
+    # Assignees list, pick one at random
+    randAssignees: # optional
+    # Max issues to create per one run
+    max: # default is 2
+    - name: Stale Watchdog Find Docs
+  # You may pin to the exact commit or the version.
+  # uses: whitesunset/stale-watchdog-find-docs-action@ada7f01eb50ebff512f52ed6019bda90dee4a720
+  uses: whitesunset/stale-watchdog-find-docs-action@1.0.0
+  with:
+    # Stale docs min age
+    minAge: # default is 21
+    # Comma-separated list of direcrories to look staled files
+    dirs: # default is ["docs"]
+    - name: Deploy static site to AWS
+  # You may pin to the exact commit or the version.
+  # uses: onramper/action-deploy-aws-static-site@1842a77e940a880b38f82ae3fa49a035b7d7b990
+  uses: onramper/action-deploy-aws-static-site@v2.0.0
+  with:
+    # The key id of your AWS Credentials
+    AWS_ACCESS_KEY_ID: 
+    # The secret key of your AWS Credentials
+    AWS_SECRET_ACCESS_KEY: 
+    # Full qualified domain (eg: subdomain.example.com) where the site will be deployed
+    domain: 
+    # Local directory to be published as a static site
+    publish_dir: 
+    
